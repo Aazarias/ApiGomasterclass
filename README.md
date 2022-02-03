@@ -31,4 +31,5 @@ concerning his video games, his progress, his library, his wishlist.
 ## Authors
 
 - [@Aazarias](https://github.com/Aazarias)
+- Damasio Matthieu
 
