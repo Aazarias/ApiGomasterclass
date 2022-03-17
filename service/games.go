@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//Service contain interface required
 type Service struct {
 	db      *db.Storage
 	signKey []byte
@@ -23,12 +24,14 @@ type Service struct {
 	}
 }*/
 
+//New service
 func New(db *db.Storage) *Service {
 	return &Service{
 		db: db,
 	}
 }
 
+//Get a game information by ID
 func (s *Service) GetGames(c *gin.Context) {
 	id := c.Param("id")
 	h, err := s.db.Games.GetByID(id)
@@ -43,6 +46,7 @@ func (s *Service) GetGames(c *gin.Context) {
 	})
 }
 
+//Get all game information
 func (s *Service) GetAllGames(c *gin.Context) {
 	h, err := s.db.Games.GetAll()
 	if err != nil {
@@ -81,6 +85,7 @@ func (s *Service) GetAllGames(c *gin.Context) {
 }
 */
 
+//Add a game and his information
 func (s *Service) CreateGames(c *gin.Context) {
 	var h model.Games
 	err := c.BindJSON(&h)
@@ -105,6 +110,7 @@ func (s *Service) CreateGames(c *gin.Context) {
 	})
 }
 
+//Delete a game
 func (s *Service) DeleteGames(c *gin.Context) {
 	id := c.Param("id")
 

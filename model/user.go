@@ -9,6 +9,7 @@ import (
 
 type Password string
 
+//Unmarshal parses the JSON-encoded data and stores the result in the value pointed
 func (p *Password) UnmarshalJSON(b []byte) error {
 	var str string
 	err := json.Unmarshal(b, &str)
@@ -23,6 +24,7 @@ func (p *Password) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+//Marshal returns the JSON encoding of v. Marshal traverses the value v recursively.
 func (p Password) MarshalJSON() ([]byte, error) {
 	return json.Marshal("")
 }
@@ -32,6 +34,7 @@ type LoginUser struct {
 	Password *Password `json:"pass,omitempty"`
 }
 
+//User represent a real person with his name, firstname, email, age, password, creation date and update date
 type User struct {
 	Id        string    `json:"id"`
 	Lastname  string    `json:"name"`

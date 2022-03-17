@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// GetUser go to Service folder.
+// Get a user by his ID
 func (s *Service) GetUser(c *gin.Context) {
 	id := c.Param("id")
 	u, err := s.db.User.GetByID(id)
@@ -24,6 +24,7 @@ func (s *Service) GetUser(c *gin.Context) {
 	})
 }
 
+//show all user
 func (s *Service) GetAllUser(c *gin.Context) {
 	us, err := s.db.User.GetAll()
 	if err != nil {
@@ -38,6 +39,7 @@ func (s *Service) GetAllUser(c *gin.Context) {
 	})
 }
 
+//add a user, ID must be unique
 func (s *Service) CreateUser(c *gin.Context) {
 	var u model.User
 	err := c.BindJSON(&u)
@@ -69,6 +71,7 @@ func (s *Service) CreateUser(c *gin.Context) {
 	})
 }
 
+//Delete a user
 func (s *Service) DeleteUser(c *gin.Context) {
 	id := c.Param("id")
 
@@ -91,6 +94,7 @@ func (s *Service) DeleteUser(c *gin.Context) {
 	})
 }
 
+//Check if email and password refer to a user
 func (s *Service) Login(c *gin.Context) {
 
 	var l model.LoginUser

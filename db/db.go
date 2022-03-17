@@ -7,6 +7,7 @@ type Storage struct {
 	User  StorageUser
 }
 
+//interface of all game function
 type StorageGames interface {
 	GetByID(id string) (*model.Games, error)
 	GetAll() ([]model.Games, error)
@@ -15,6 +16,7 @@ type StorageGames interface {
 	Update(id string, data map[string]interface{}) (*model.Games, error)
 }
 
+//Interface of all user function
 type StorageUser interface {
 	GetByID(id string) (*model.User, error)
 	GetByEmail(email string) (*model.User, error)
