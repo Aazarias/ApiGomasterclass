@@ -46,6 +46,7 @@ func init() {
 func main() {
 	r := gin.Default()
 	db := moke.New()
+<<<<<<< HEAD
 
 	secureJWT := util.MiddlJWT(config.SecretKey)
 	c := cache.New()
