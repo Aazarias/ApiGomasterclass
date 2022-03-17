@@ -1,4 +1,4 @@
-package db
+package moke
 
 import (
 	"github.com/Aazarias/ApiGomasterclass/db"
