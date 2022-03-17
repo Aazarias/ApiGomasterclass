@@ -31,7 +31,7 @@ func init() {
 	viper.AddConfigPath(".")      // optionally look for config in the working directory
 	err := viper.ReadInConfig()   // Find and read the config file
 	if err != nil {               // Handle errors reading the config file
-		panic(fmt.Errorf("Fatal error config file: %w \n", err))
+		panic(fmt.Errorf("Fatal error config file: %w ", err))
 	}
 	config.EnvType = viper.GetString("EnvType")
 	config.SecretKey = []byte(viper.GetString("SecretKey"))
@@ -46,8 +46,6 @@ func init() {
 func main() {
 	r := gin.Default()
 	db := moke.New()
-<<<<<<< HEAD
-
 	secureJWT := util.MiddlJWT(config.SecretKey)
 	c := cache.New()
 	cacheMdw := cache.MiddlCache(c)
