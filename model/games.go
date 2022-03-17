@@ -5,5 +5,5 @@ type Games struct {
 	Name        string `json:"games_name"`
 	Mark        string `json:"mark"`
 	Price       string `json:"price"`
-	ReleaseDate string `json:"release_date"`
+	RealaseDate string `json:"release_date"`
 }

@@ -2,7 +2,7 @@
 # ApiGomasterclass
 
 The ApiGomasterclass api is used to retrieve main user data (first name, email, nickname) as well as data
-concerning his video games, his progress, his library, his wishlist.
+concerning video games, name, mark, price, release date.
 
 
 ## API Reference
