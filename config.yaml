@@ -1,0 +1,8 @@
+SecretKey: test
+ListenPort: 8081
+EnvType: prod
+DB:
+  DBName: db_Azarias
+  User: user_Azarias
+  Pass: mdp_Azarias
+  Port: 3306

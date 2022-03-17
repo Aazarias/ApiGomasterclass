@@ -16,15 +16,20 @@ type Service struct {
 	cache   *cache.Cache
 }
 
-func New(db *db.Storage, cache *cache.Cache, signKey []byte) *Service {
+/*func New(db *db.Storage, cache *cache.Cache, signKey []byte) *Service {
 	return &Service{
 		db:      db,
 		signKey: signKey,
 		cache:   cache,
 	}
+}*/
+
+func New(db *db.Storage) *Service {
+	return &Service{
+		db: db,
+	}
 }
 
-// go to Service folder.
 func (s *Service) GetGames(c *gin.Context) {
 	id := c.Param("id")
 	h, err := s.db.Games.GetByID(id)
@@ -58,7 +63,7 @@ func (s *Service) CreateGames(c *gin.Context) {
 	err := c.BindJSON(&h)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"err": err,
+			"err creation game": err,
 		})
 		return
 	}

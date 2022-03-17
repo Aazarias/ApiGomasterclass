@@ -1,17 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/Aazarias/ApiGomasterclass/cache"
 	"github.com/Aazarias/ApiGomasterclass/db/moke"
 	"github.com/Aazarias/ApiGomasterclass/service"
-	"github.com/Aazarias/ApiGomasterclass/util"
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 )
 
-type Config struct {
+/*type Config struct {
 	ListenPort string
 	SecretKey  []byte
 	EnvType    string
@@ -42,19 +37,21 @@ func init() {
 	config.db.Pass = viper.GetString("db.Pass")
 	config.db.Port = viper.GetString("db.Port")
 }
-
+*/
 func main() {
 	r := gin.Default()
 	db := moke.New()
-	secureJWT := util.MiddlJWT(config.SecretKey)
+	s := service.New(db)
+
+	/*secureJWT := util.MiddlJWT(config.SecretKey)
 	c := cache.New()
 	cacheMdw := cache.MiddlCache(c)
-	s := service.New(db, c, config.SecretKey)
-	r.GET("/users/:id", cacheMdw, s.GetUser)
+	s := service.New(db, c, config.SecretKey)*/
+	/*r.GET("/users/:id", cacheMdw, s.GetUser)
 	r.POST("/users", s.CreateUser)
 	r.GET("/users", cacheMdw, s.GetAllUser)
 	r.DELETE("/users/:id", secureJWT, s.DeleteUser)
-	r.POST("/login", s.Login)
+	r.POST("/login", s.Login)*/
 
 	r.GET("/games/:id", s.GetGames)
 	r.POST("/games", s.CreateGames)
