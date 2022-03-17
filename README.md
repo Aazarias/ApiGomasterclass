@@ -7,26 +7,71 @@ concerning his video games, his progress, his library, his wishlist.
 
 ## API Reference
 
-#### Get all items
+#### Get all games
 
 ```http
-  GET /api/items
+  GET /api/games
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-#### Get item
+#### Get games
 
 ```http
-  GET /api/items/${id}
+  GET /api/games/${id}
+```
+| Parameter  | Type     | Description                          |
+| :--------  | :------- | :--------------------------------    |
+| `id`       | `string` | **Required**. Id of game to fetch    |
+
+#### Delete games
+
+```http
+  GET /api/games/${id}
+```
+| Parameter  | Type     | Description                          |
+| :--------  | :------- | :--------------------------------    |
+| `id`       | `string` | **Required**. Id of game to Delete   |
+
+
+#### Create games
+
+```http
+  POST /api/games
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| Parameter    | Type     | Description                                 |
+| :--------    | :------- | :--------------------------------           |
+| `games_name` | `string` | **Required**. Name of item to create        |
+| `mark`       | `string` | **Required**. mark of item to create        |
+| `price`      | `string` | **Required**. Price of item to create       |
+| `relase_date`| `string` | **Required**. Release date of item to create|
 
+
+#### Update games
+
+```http
+  POST /api/games/${id}
+```
+
+| Parameter    | Type     | Description                                 |
+| :--------    | :------- | :--------------------------------           |
+| `id`         | `string` | **Required**. Id of game to update          |
+| `games_name` | `string` | **Required**. Name of item to Update        |
+| `mark`       | `string` | **Required**. mark of item to Update        |
+| `price`      | `string` | **Required**. Price of item to create       |
+| `relase_date`| `string` | **Required**. Release date of item to create|
+
+
+
+## Installation
+
+```
+  git clone https://github.com/Aazarias/ApiGomasterclass.git
+  go run main.go
+```
 
 ## Authors
 

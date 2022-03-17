@@ -58,6 +58,30 @@ func (s *Service) GetAllGames(c *gin.Context) {
 	})
 }
 
+/*func (s *Service) Update(c *gin.Context) {
+	var game model.Games
+	err := c.BindJSON(&game)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"err upodate game": err,
+		})
+		return
+	}
+
+	//updated, err := s.db.Games.Update(game.ID, *db.StorageGames.Update(game, ))
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"err upodate game": err,
+		})
+		return
+	}
+
+	c.JSON(http.StatusCreated, gin.H{
+		"user": updated,
+	})
+}
+*/
+
 func (s *Service) CreateGames(c *gin.Context) {
 	var h model.Games
 	err := c.BindJSON(&h)
